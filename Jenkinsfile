@@ -46,18 +46,18 @@ node {
             """
         }
 
-        stage('Deploy Added/Modified Metadata') {
-            // Deploy using generated package/package.xml
-            sh """
-                sf project deploy start --metadata-dir package --ignore-warnings
-            """
-        }
+       stage('Deploy Added/Modified Metadata') {
+    sh """
+        sf project deploy start --metadata-dir package --ignore-warnings --target-org bsinghdeo@resilient-goat-ocpsv1.com
+    """
+}
+
 
         stage('Deploy Destructive Changes if any') {
             // Deploy destructiveChanges if exists
             sh """
                 if [ -f destructiveChanges/destructiveChanges.xml ]; then
-                    sf project deploy start --metadata-dir destructiveChanges --ignore-warnings
+                    sf project deploy start --metadata-dir destructiveChanges --ignore-warnings --target-org bsinghdeo@resilient-goat-ocpsv1.com
                 else
                     echo "No destructive changes to deploy"
                 fi
