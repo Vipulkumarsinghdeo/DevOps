@@ -3,7 +3,7 @@
     <fullName>Duration__c</fullName>
     <externalId>false</externalId>
     <label>Duration</label>
-    <precision>2</precision>
+    <precision>3</precision>
     <required>true</required>
     <scale>0</scale>
     <trackHistory>false</trackHistory>
