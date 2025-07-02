@@ -33,8 +33,11 @@ node {
         }
 
         stage('Install sfdx-git-delta plugin if not present') {
-            sh "sf plugins --core | grep sfdx-git-delta || sf plugins install sfdx-git-delta"
-        }
+    sh """
+        sf plugins --core | grep sfdx-git-delta || sf plugins install sfdx-git-delta --no-verify
+    """
+}
+
 
         stage('Generate Delta Changes') {
             // Generate delta between HEAD and previous commit HEAD^
