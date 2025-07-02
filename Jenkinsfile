@@ -41,8 +41,8 @@ node {
 
         stage('Deploy Code') {
             sh """
-                sf project deploy start \
-                    --metadata-dir force-app \
+                 sf project deploy start \
+                    --manifest manifest/package.xml \
                     --target-org ${HUB_ORG}
             """
         }
